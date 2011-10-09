@@ -1,18 +1,18 @@
-    #!/bin/sh
+#!/bin/sh
 
-    indent() {
-      sed -u 's/^/       /'
-    }
+indent() {
+  sed -u 's/^/       /'
+}
 
-    echo "-----> Found a hello.txt"
+echo "-----> Found a hello.txt"
 
-    # if hello.txt has contents, display them (indented to align)
-    # otherwise error
+# if hello.txt has contents, display them (indented to align)
+# otherwise error
 
-    if [ ! -s $1/hello.txt ]; then
-      echo "hello.txt was empty" | indent
-      exit 1
-    else
-      echo "hello.txt is not empty, here are the contents" | indent
-      cat $1/hello.txt | indent
-    fi
+if [ ! -s $1/hello.txt ]; then
+  echo "hello.txt was empty" | indent
+  exit 1
+else
+  echo "hello.txt is not empty, here are the contents" | indent
+  cat $1/hello.txt | indent
+fi

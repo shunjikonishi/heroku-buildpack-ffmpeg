@@ -1,10 +1,10 @@
-# Hello Language Pack
+# Hello Build Pack
 
-The Hello Language Pack will look for a file named `hello.txt` in the app root and
+The Hello Build Pack will look for a file named `hello.txt` in the app root and
 display its contents during push.
 
 ## Usage
 
-Add this language pack to your `LANGUAGE_PACK_URL`.
+Add this language pack to your `BUILDPACK_URL`.
 
-    heroku config:add LANGUAGE_PACK_URL="http://github.com/heroku/language-pack-hello.git"
+    heroku config:add BUILDPACK_URL="http://github.com/heroku/heroku-buildpack-hello.git"
