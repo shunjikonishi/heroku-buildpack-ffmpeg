@@ -1,7 +1,7 @@
 Heroku buildpack: Hello
 =======================
 
-This is an example [Heroku buildpack](http://devcenter.heroku.com/articles/buildpack).
+This is an example [Heroku buildpacks](http://devcenter.heroku.com/articles/buildpacks).
 
 Usage
 -----
