@@ -11,7 +11,7 @@ BUILD_DIR=$1
 VENDOR_DIR="vendor"
 
 cd $BUILD_DIR
-git clone -n --depth 1 git@github.com:flect/heroku-binaries.git $VENDOR_DIR
+git clone -n --depth 1 https://github.com/flect/heroku-binaries.git $VENDOR_DIR
 cd $VENDOR_DIR
 git checkout HEAD ffmpeg.tar.gz
 tar zxvf ffmpeg.tar.gz
