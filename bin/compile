@@ -4,13 +4,22 @@ indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Found a hello.txt"
+URL = ""
 
-# if hello.txt is empty, abort the build
-if [ ! -s $1/hello.txt ]; then
-  echo "hello.txt was empty" | indent
-  exit 1
-fi
+echo "-----> Install ffmpeg"
+BUILD_DIR=$1
+VENDOR_DIR="vendor"
 
-# replace hello with goodbye in a new file
-cat $1/hello.txt | sed -e "s/[Hh]ello/Goodbye/g" > $1/goodbye.txt
+cd $BUILD_DIR
+git clone -n --depth 1 git@github.com:flect/heroku-binaries.git $VENDOR_DIR
+cd $VENDOR_DIR
+git checkout HEAD ffmpeg.tar.gz
+tar zxvf ffmpeg.tar.gz
+rm -rf .git
+rm ffmpeg.tar.gz
+
+echo "exporting PATH and LIBRARY_PATH" | indent
+PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+echo 'export PATH="vendor/ffmpeg/bin:$PATH"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/ffmpeg/lib"' >> $PROFILE_PATH
