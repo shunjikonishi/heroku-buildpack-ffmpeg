@@ -21,5 +21,5 @@ rm ffmpeg.tar.gz
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="vendor/ffmpeg/bin:$PATH"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:vendor/ffmpeg/bin"' >> $PROFILE_PATH
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/ffmpeg/lib"' >> $PROFILE_PATH
