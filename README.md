@@ -1,34 +1,22 @@
-Heroku buildpack: Hello
+Heroku buildpack: FFMpeg
 =======================
 
-This is an example [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks).
+This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for using [ffmpeg](http://www.ffmpeg.org/) in your project. It doesn't do anything else, so to actually compile your app you should use [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) to combine it with a real buildpack.
 
 Usage
 -----
-
-Example usage:
+To use this buildpack, you should prepare .buildpacks file that contains this buildpack url and your read buildpack url.  
 
     $ ls
-    hello.txt
+    .buildpacks
+    ...
+    
+    $ cat .buildpacks
+    https://github.com/shunjikonishi/heroku-buildpack-ffmpeg
+    https://github.com/heroku/heroku-buildpack-play
 
-    $ heroku create --stack cedar --buildpack http://github.com/heroku/heroku-buildpack-hello.git
+    $ heroku create --buildpack http://github.com/dollar/heroku-buildpack-multi.git
 
     $ git push heroku master
     ...
-    -----> Heroku receiving push
-    -----> Fetching custom buildpack
-    -----> HelloFramework app detected
-    -----> Found a hello.txt
 
-The buildpack will detect that your app has a `hello.txt` in the root. If this file has contents, it will be copied to `goodbye.txt` with instances of the world `hello` changed to `goodbye`.
-
-Hacking
--------
-
-To use this buildpack, fork it on Github.  Push up changes to your fork, then create a test app with `--buildpack <your-github-url>` and push to it.
-
-For example, you can change the displayed name of the buildpack to `GoodbyeFramework`. Open `bin/detect` in your editor, and change `HelloFramework` to `GoodbyeFramework`.
-
-Commit and push the changes to your buildpack to your Github fork, then push your sample app to Heroku to test.  You should see:
-
-    -----> GoodbyeFramework app detected
