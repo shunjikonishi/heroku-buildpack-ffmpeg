@@ -4,16 +4,14 @@ indent() {
   sed -u 's/^/       /'
 }
 
-URL = ""
-
 echo "-----> Install ffmpeg"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="http://flect.github.io/heroku-binaries/libs/ffmpeg.tar.gz"
 
 cd $BUILD_DIR
-mkdir -p VENDOR_DIR
-cd VENDOR_DIR
+mkdir -p $VENDOR_DIR
+cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
