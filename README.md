@@ -16,7 +16,7 @@ To use this buildpack, you should prepare .buildpacks file that contains this bu
     https://github.com/shunjikonishi/heroku-buildpack-ffmpeg
     https://github.com/heroku/heroku-buildpack-play
 
-    $ heroku create --buildpack http://github.com/dollar/heroku-buildpack-multi.git
+    $ heroku create --buildpack https://github.com/ddollar/heroku-buildpack-multi
 
     $ git push heroku master
     ...
