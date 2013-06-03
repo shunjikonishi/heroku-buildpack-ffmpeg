@@ -9,14 +9,12 @@ URL = ""
 echo "-----> Install ffmpeg"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
+URL="https://flect.github.io/heroku-binaries/libs/ffmpeg.tar.gz"
 
 cd $BUILD_DIR
-git clone -n --depth 1 https://github.com/flect/heroku-binaries.git $VENDOR_DIR
-cd $VENDOR_DIR
-git checkout HEAD ffmpeg.tar.gz
-tar zxvf ffmpeg.tar.gz
-rm -rf .git
-rm ffmpeg.tar.gz
+mkdir -p VENDOR_DIR
+cd VENDOR_DIR
+curl -L --silent $URL | tar xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
