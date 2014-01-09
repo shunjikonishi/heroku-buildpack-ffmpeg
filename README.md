@@ -25,3 +25,8 @@ You can verify installing ffmpeg by following command.
 
     $ heroku run "ffmpeg -version"
 
+Hacking
+-------
+If you want to use your own ffmpeg binary, folk and rewrite following line.
+
+https://github.com/shunjikonishi/heroku-buildpack-ffmpeg/blob/master/bin/compile#L10
