@@ -27,6 +27,6 @@ You can verify installing ffmpeg by following command.
 
 Hacking
 -------
-If you want to use your own ffmpeg binary, folk and rewrite following line.
+If you want to use your own ffmpeg binary, fork and rewrite following line.
 
 https://github.com/shunjikonishi/heroku-buildpack-ffmpeg/blob/master/bin/compile#L10
